@@ -1089,6 +1089,98 @@ footer h5{font-size:22px;margin-bottom:18px}footer li{font-size:16px}
  .sl .bg{transition-duration:6s}
  .cl{transition-duration:1.1s}
 }
+
+/* hero banner fixes: any gap/width, any phone */
+.sl{flex:0 0 calc(100% - 32px);min-width:0;padding-left:clamp(20px,7vw,40px);padding-right:clamp(20px,7vw,40px)}
+.tx{max-width:calc(100% - 10px)}
+.tx h1{font-size:clamp(30px,9.5vw,56px);line-height:1.05;overflow-wrap:anywhere}
+.pv{top:6%;right:7%;bottom:auto;width:clamp(44px,13vw,84px)}
+.pv .bt{width:100%}
+.arch{width:36%;height:34%;right:7%;top:5%}
+@media(min-width:600px){.sl{flex-basis:calc(100% - 56px)}.pv{top:auto;bottom:12%;width:clamp(80px,14vw,150px)}.arch{height:50%}}
+@media(min-width:901px){.sl{flex-basis:calc(100vw - 126px);padding:0 5%}.pv{right:13%;bottom:9%;top:auto;width:min(15vw,230px)}.arch{right:15%;top:6%;width:30%;height:70%}}
+
+/* ===== HERO v3: deterministic, centered, any width ===== */
+.hero{padding-bottom:40px}
+.trk{padding-left:16px;gap:14px}
+.sl{flex:0 0 calc(100vw - 48px);width:auto;height:min(560px,74vh);height:min(560px,74svh);min-height:470px;align-items:flex-end;padding:0 clamp(20px,6vw,36px) 96px;border-radius:26px}
+.tx{padding-right:0}
+.pv{top:9%;bottom:auto;right:8%;width:clamp(44px,13vw,80px)}
+.arch{top:6%;right:8%;width:34%;height:32%}
+.hw .a{display:none}
+.ctl{bottom:58px;gap:16px}
+@media(min-width:600px){
+ .trk{padding-left:28px;gap:20px}.sl{flex-basis:calc(100vw - 84px);padding-bottom:100px;height:min(620px,76svh)}
+ .hw .a{display:grid;top:50%;bottom:auto;margin-top:-22px}.hw .l{left:44px}.hw .r{right:72px}
+ .pv{top:auto;bottom:14%;right:10%;width:clamp(80px,14vw,150px)}.arch{height:48%;top:8%}
+}
+@media(min-width:901px){
+ .hero{padding-bottom:56px}.trk{padding-left:48px;gap:30px}
+ .sl{flex-basis:calc(100vw - 126px);height:min(700px,76vh);align-items:center;padding:0 5%}
+ .hw .a{top:auto;bottom:76px;margin:0}.hw .l{left:calc(48px + 5%)}.hw .r{right:calc(48px + 5%)}
+ .ctl{bottom:84px;gap:24px}
+ .pv{right:13%;bottom:9%;top:auto;width:min(15vw,230px)}.arch{right:15%;top:6%;width:30%;height:70%}
+}
+
+/* ===== PHONE HERO v4: portrait card like reference ===== */
+@media(max-width:599px){
+ .hero{padding-bottom:28px}
+ .trk{padding-left:16px;gap:16px}
+ .sl{flex:0 0 calc(100vw - 32px);height:auto;min-height:0;aspect-ratio:5/6;border-radius:28px;align-items:flex-start;justify-content:center;text-align:center;padding:9% 5% 0}
+ .tx{display:flex;flex-direction:column;align-items:center;width:100%;max-width:100%}
+ .tx h1{font-size:clamp(26px,8.2vw,40px);line-height:1.08}
+ .tx p{font-size:clamp(15px,4.6vw,22px);margin:4px 0 10px}
+ .tx p[style]{font-size:clamp(14px,4.2vw,18px)!important}
+ .big{font-size:clamp(42px,14vw,64px)}
+ .pill{font-size:clamp(12px,3.6vw,16px);padding:6px 16px;margin:4px 0 8px}
+ .pv{left:0;right:0;margin-inline:auto;width:clamp(44px,15vw,68px);top:auto;bottom:5%}
+ .arch{left:0;right:0;margin-inline:auto;top:auto;bottom:0;width:46%;height:34%;opacity:.6}
+ .ctl{justify-content:flex-start;left:38px;right:auto;bottom:50px;gap:14px}
+ /* Explore scents: swipe row */
+ .g3{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-16px;padding-inline:16px;scroll-padding-inline:16px;scrollbar-width:none}
+ .g3::-webkit-scrollbar{display:none}
+ .g3>.tile,.g3>.tile:last-child{flex:0 0 76%;aspect-ratio:1;scroll-snap-align:start}
+}
+
+/* ===== NEW HERO BANNER: Super Saver Deal ===== */
+.dl .kick{display:block;font:500 clamp(12px,3.6vw,18px) Outfit,sans-serif;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px}
+.dl h1{font-size:clamp(34px,11vw,66px);line-height:1.02;text-transform:uppercase}
+.dl h1 b{display:block;font-weight:400;font-size:1.2em}
+.dl .pill{margin:12px 0 0;font-size:clamp(12px,3.6vw,17px)}
+.dl .bg{inset:0;transform:none}
+.dl::after{content:"";position:absolute;inset:auto 0 0 0;height:30%;background:linear-gradient(transparent,#2a040c99);z-index:1;pointer-events:none}
+.hb{position:absolute;left:0;right:0;bottom:0;height:52%;margin-inline:auto;width:min(100%,560px);z-index:1}
+.hb .bt{position:absolute;width:21%;opacity:0;transform:translateY(80px) rotate(var(--r));transition:transform 1.5s var(--e),opacity 1s var(--e);transition-delay:calc(var(--i)*90ms + 250ms);box-shadow:0 24px 40px -14px #000a}
+.hb .bt::after{font-size:clamp(7px,2.2vw,16px)}
+.on .hb .bt{opacity:1;transform:rotate(var(--r))}
+@media(max-width:899px){.dl{align-items:flex-start;justify-content:center;text-align:center;padding:9% 5% 0}.dl .tx{display:flex;flex-direction:column;align-items:center}}
+@media(min-width:900px){.dl{justify-content:flex-start;text-align:left;align-items:center}.dl h1{font-size:clamp(50px,6vw,92px)}.hb{left:auto;right:5%;margin:0;width:min(48%,640px);height:88%}.hb .bt{width:23%}.hb .bt::after{font-size:clamp(10px,1.3vw,20px)}}
+
+/* ===== BANNER GRAPHICS ===== */
+.dl::before{content:"";position:absolute;left:50%;bottom:-30%;width:170%;aspect-ratio:1;translate:-50% 0;background:repeating-conic-gradient(from 0deg,#ffffff1c 0 5deg,#0000 5deg 15deg);-webkit-mask:radial-gradient(circle,#000 0,#0000 62%);mask:radial-gradient(circle,#000 0,#0000 62%);animation:rays 60s linear infinite;z-index:0;pointer-events:none}
+@keyframes rays{to{rotate:360deg}}
+.dl h1 b{background:linear-gradient(180deg,#fff 20%,#ffd27a);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 18px #0007);letter-spacing:.02em}
+.dl .kick{display:inline-block;padding:6px 16px;border:1px solid #ffffff66;border-radius:99px;background:#ffffff14;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.dl .pill{background:#00000026;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-color:#ffffff99}
+.spk{position:absolute;z-index:2;font-style:normal;color:#ffe7a8;opacity:0;animation:tw 3.2s ease-in-out infinite;pointer-events:none;text-shadow:0 0 10px #ffc44d}
+@keyframes tw{0%,100%{opacity:0;transform:scale(.4) rotate(0)}50%{opacity:1;transform:scale(1) rotate(45deg)}}
+.bdg{position:absolute;z-index:3;right:clamp(12px,4%,40px);top:clamp(12px,4%,40px);width:clamp(54px,16vw,92px);aspect-ratio:1;border-radius:50%;display:grid;place-content:center;text-align:center;rotate:12deg;color:#5a1a06;font:500 clamp(8px,2.2vw,12px)/1.15 Outfit,sans-serif;letter-spacing:.14em;text-transform:uppercase;background:radial-gradient(circle at 30% 25%,#fff3c4,#e8b94f 55%,#a87a22);box-shadow:0 8px 22px -6px #000a,inset 0 0 0 3px #ffffff55,inset 0 0 0 5px #a87a2244}
+.bdg b{display:block;font:400 clamp(11px,3.4vw,19px) "Tenor Sans",serif;letter-spacing:.06em}
+.hb::before{content:"";position:absolute;left:-5%;right:-5%;bottom:-6%;height:40%;background:radial-gradient(ellipse at 50% 100%,#ffb44d99,#0000 65%);filter:blur(10px);z-index:-1}
+.hb .bt{box-shadow:0 26px 40px -14px #000b,inset 4px 0 8px #ffffff2e,inset -8px 0 14px #000a;background-blend-mode:normal}
+.hb .bt::before{background:linear-gradient(90deg,#7a5a22,#f6e3a6 42%,#9a7430 70%,#5a4016);box-shadow:inset 0 -3px 5px #0006}
+.hb .bt.gl::after{box-shadow:inset 0 0 0 2px #ffffff55}
+.on .hb .bt{animation:fl 6s ease-in-out infinite;animation-delay:calc(var(--i)*-1.3s)}
+@keyframes fl{0%,100%{transform:translateY(0) rotate(var(--r))}50%{transform:translateY(-9px) rotate(var(--r))}}
+.hb .bt:nth-child(1)::after,.hb .bt:nth-child(3)::after{content:"NPH"}
+@media(min-width:900px){.dl .bdg{right:auto;left:clamp(30px,40%,520px);top:12%}}
+
+/* bottle illustration */
+.hb{height:60%}
+.hb svg{width:100%;height:100%;display:block;overflow:visible;opacity:0;transform:translateY(50px) scale(.95);transition:transform 1.6s var(--e) .25s,opacity 1.1s var(--e) .25s;filter:drop-shadow(0 18px 28px #0007)}
+.on .hb svg{opacity:1;transform:none}
+@media(max-width:599px){.sl.dl{aspect-ratio:6/7.4}.dl h1{font-size:clamp(28px,9vw,44px)}.dl .kick{margin-bottom:6px}}
+@media(min-width:900px){.hb{height:94%;width:min(52%,740px);right:4%}}
 /* ===== END RESPONSIVE LAYER ===== */
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Cinzel:wght@500&family=Fredoka:wght@600&display=swap" rel="stylesheet">
@@ -1119,9 +1211,37 @@ footer h5{font-size:22px;margin-bottom:18px}footer li{font-size:16px}
 <div id="home">
 <section class="hero hw">
  <div class="trk" id="trk">
-  <div class="sl on"><div class="bg" style="background:radial-gradient(circle at 70% 60%,#2a3566,#0f1840 55%,#080d28)"></div><div class="arch"></div>
-   <div class="tx"><h1>Make <em>Diwali</em></h1><p>Personal Again</p><div class="big">15% OFF</div><span class="pill">On all personalized perfumes</span><p style="font-size:30px;margin:0">23<sup>rd</sup> Oct – 8<sup>th</sup> Nov</p></div>
-   <div class="pv"><div class="bt gl"></div></div></div>
+  <div class="sl on dl"><div class="bg" style="background:radial-gradient(circle at 18% 22%,#ffb36644 0 6%,transparent 7%),radial-gradient(circle at 86% 30%,#ffd29a33 0 5%,transparent 6%),radial-gradient(circle at 70% 12%,#ff9a5a33 0 4%,transparent 5%),radial-gradient(90% 60% at 50% 105%,#ffa23a,#e24a1c 38%,transparent 70%),linear-gradient(180deg,#5a0716,#8f1225 45%,#c4341c)"></div>
+   <div class="tx"><span class="kick">Super Saver Deal</span><h1>Get any 5<b>@ 3999</b></h1><span class="pill">on All Signature Perfumes</span></div>
+   <i class="spk" style="left:12%;top:22%;font-size:14px;animation-delay:0s">✦</i><i class="spk" style="left:84%;top:16%;font-size:10px;animation-delay:1.2s">✦</i><i class="spk" style="left:70%;top:38%;font-size:18px;animation-delay:0.6s">✦</i><i class="spk" style="left:22%;top:44%;font-size:9px;animation-delay:1.8s">✦</i><i class="spk" style="left:92%;top:52%;font-size:12px;animation-delay:0.9s">✦</i><i class="spk" style="left:8%;top:60%;font-size:11px;animation-delay:2.2s">✦</i><div class="bdg"><b>Limited</b>time</div>
+   <div class="hb"><svg viewBox="20 70 560 480" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+<defs>
+<linearGradient id="nc" x1="0" x2="1"><stop offset="0" stop-color="#4a4a4a"/><stop offset=".25" stop-color="#222"/><stop offset=".7" stop-color="#0b0b0b"/><stop offset="1" stop-color="#2c2c2c"/></linearGradient>
+<linearGradient id="ng" x1="0" x2="1"><stop offset="0" stop-color="#f7e6a8"/><stop offset=".5" stop-color="#c79a3e"/><stop offset="1" stop-color="#7d5a1c"/></linearGradient>
+<linearGradient id="nb" x1="0" x2="1"><stop offset="0" stop-color="#4a342b"/><stop offset=".3" stop-color="#1c1210"/><stop offset=".75" stop-color="#0b0605"/><stop offset="1" stop-color="#2a1a12"/></linearGradient>
+<linearGradient id="nr" x1="0" x2="1"><stop offset="0" stop-color="#ffb066" stop-opacity="0"/><stop offset="1" stop-color="#ffb066" stop-opacity=".75"/></linearGradient>
+<linearGradient id="nl" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<pattern id="ngr" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M8 0H0V8" fill="none" stroke="#fff" stroke-opacity=".1"/><rect width="3" height="3" fill="#000" fill-opacity=".25"/></pattern>
+<linearGradient id="nf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".5"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<mask id="nm" maskUnits="userSpaceOnUse" x="0" y="503" width="600" height="80"><rect x="0" y="503" width="600" height="80" fill="url(#nf)"/></mask>
+<filter id="nblur"><feGaussianBlur stdDeviation="9"/></filter>
+<g id="nbot">
+ <rect x="34" y="0" width="52" height="62" rx="7" fill="url(#nc)"/><rect x="40" y="5" width="5" height="52" rx="2.5" fill="#fff" opacity=".22"/>
+ <rect x="30" y="60" width="60" height="14" rx="3" fill="url(#ng)"/>
+ <rect x="8" y="72" width="104" height="158" rx="15" fill="url(#nb)"/>
+ <rect x="8" y="72" width="104" height="158" rx="15" fill="url(#ngr)"/>
+ <rect x="10" y="76" width="12" height="148" rx="6" fill="url(#nl)"/>
+ <rect x="94" y="76" width="16" height="150" rx="8" fill="url(#nr)"/>
+ <rect x="34" y="96" width="52" height="52" fill="#141414" stroke="#f3e6c4" stroke-width="2.5"/>
+ <text x="60" y="128" text-anchor="middle" font-size="15" font-weight="600" letter-spacing="1" fill="#f3e6c4" font-family="Outfit,sans-serif">NPH</text>
+ <rect x="26" y="184" width="68" height="18" rx="2" fill="#000" opacity=".55"/>
+</g>
+<g id="ncl"><g transform="translate(262 108) rotate(20 60 115) scale(1.15)"><use href="#nbot"/><text x="60" y="196" text-anchor="middle" font-size="7" letter-spacing="2.2" fill="#d7b36a" font-family="Outfit,sans-serif">OUD</text></g><g transform="translate(40 262) rotate(-16 60 115) scale(1.05)"><use href="#nbot"/><text x="60" y="196" text-anchor="middle" font-size="7" letter-spacing="2.2" fill="#d7b36a" font-family="Outfit,sans-serif">NOIR</text></g><g transform="translate(440 258) rotate(18 60 115) scale(1.05)"><use href="#nbot"/><text x="60" y="196" text-anchor="middle" font-size="7" letter-spacing="2.2" fill="#d7b36a" font-family="Outfit,sans-serif">BLOOM</text></g><g transform="translate(170 250) rotate(-2 60 115) scale(1.1)"><use href="#nbot"/><text x="60" y="196" text-anchor="middle" font-size="7" letter-spacing="2.2" fill="#d7b36a" font-family="Outfit,sans-serif">AMBER</text></g><g transform="translate(280 340) rotate(84 60 115) scale(1.0)"><use href="#nbot"/><text x="60" y="196" text-anchor="middle" font-size="7" letter-spacing="2.2" fill="#d7b36a" font-family="Outfit,sans-serif">MUSK</text></g></g>
+</defs>
+<ellipse cx="300" cy="506" rx="270" ry="14" fill="#000" opacity=".5" filter="url(#nblur)"/>
+<g transform="translate(0 1006) scale(1 -1)" mask="url(#nm)" opacity=".55"><use href="#ncl"/></g>
+<use href="#ncl"/>
+</svg></div></div>
   <div class="sl"><div class="bg" style="background:radial-gradient(circle at 70% 50%,#d9a441,#5a2d12 60%,#1a0d06)"></div><div class="tx"><h1>Your name, bottled</h1><p>Engraved free on every personalized bottle</p><span class="pill">Start blending</span></div><div class="pv"><div class="bt gl"></div></div></div>
   <div class="sl"><div class="bg" style="background:radial-gradient(circle at 65% 50%,#3f8f86,#10303a 60%,#071418)"></div><div class="tx"><h1>Buy 2, get 1 free</h1><p>On every signature perfume</p><span class="pill">Shop signature</span></div><div class="pv"><div class="bt"></div></div></div>
   <div class="sl"><div class="bg" style="background:radial-gradient(circle at 65% 50%,#7a3fa8,#2a0f45 60%,#10061c)"></div><div class="tx"><h1>Scents of the world</h1><p>Cosmopolitan, now in 100 ml</p><span class="pill">Explore</span></div><div class="pv"><div class="bt rd"></div></div></div>
@@ -1457,7 +1577,7 @@ footer h5{font-size:22px;margin-bottom:18px}footer li{font-size:16px}
 <aside class="sd" id="srchDr" role="dialog" aria-modal="true" aria-label="Search" aria-hidden="true"><div class="dh"><h3>Search</h3><button class="sx" id="srchX" aria-label="Close search"><svg viewBox="0 0 16 16"><path d="M2 2l12 12M14 2 2 14"/></svg></button></div><div class="db"><input class="si" id="srchIn" type="search" placeholder="Search for ..." autocomplete="off" aria-label="Search for"></div></aside>
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-$('#mq').innerHTML=Array(10).fill('<span>✨ Light up the festive season with their name in a bottle – 15% off all personalized perfume</span>').join('');
+$('#mq').innerHTML=Array(10).fill('<span>✨ Super Saver Deal – Get any 5 signature perfumes @ 3999</span>').join('');
 const lg=["Daily Today","LBB","Story","Fashion","Indian TV","Elle"],L=Array(4).fill(lg.map(l=>`<span>${l}</span>`).join('')).join('');$('#r1').innerHTML=L;$('#r2').innerHTML=L;
 const P=[["Marshmallow Fluff","Oriental | Allday | Unisex","2,099","700","linear-gradient(#f3a3c2,#c85a88)"],["Purple Mystique","Woody | Allday | Unisex","2,099","700","radial-gradient(circle at 50% 80%,#7a3fa0,#2a0f40)"],["Bangalore Bloom","Floral | Allday | Unisex","2,099","700","radial-gradient(circle at 60% 30%,#ffb43a,#e0561a)"],["Heartquake","Floral | Allday | Women","1,799","600","radial-gradient(circle at 50% 70%,#e0305a,#7a0a24)"],["Amber Dusk","Oriental | Evening | Unisex","1,999","650","linear-gradient(#e8a34a,#4a2410)"]];
 $('#bs').innerHTML=P.map(p=>`<div class="pc"><div class="im" style="--b:${p[4]}"><span class="tag">↗ Selling Fast</span><div class="bt"></div></div><div class="pi"><h4>${p[0]}<span>4.5</span></h4><small>${p[1]}</small><div class="p">₹${p[2]}.00</div><div class="e">or ₹${p[3]}/Month<b>Buy on EMI &gt;</b></div><span class="ch">50ml</span><span class="ch on">100ml</span><span class="ch">🎁 Personalized</span><button class="q">Quick Add</button></div></div>`).join('');
@@ -2328,6 +2448,24 @@ h.addEventListener('touchmove',function(e){var p=e.touches[0];if(!lock)lock=Math
 h.addEventListener('touchend',function(e){if(lock!==1)return;var dx=e.changedTouches[0].clientX-sx,v=Math.abs(dx)/(Date.now()-t+1);if(Math.abs(dx)>45||v>.5)(dx<0?nx:pv).click()},{passive:true});
 h.style.touchAction='pan-y';
 document.addEventListener('visibilitychange',function(){if(!document.hidden)nx.dispatchEvent(new Event('visibilitychange'))});
+})();
+</script>
+<script>
+/* hero: position by real slide offsets (works with any gap/width), snap on resize */
+(function(){
+var trk=document.getElementById('trk');if(!trk)return;
+var sl=[].slice.call(trk.querySelectorAll('.sl')),dots=document.getElementById('dots');
+window.go=function(i){
+ cur=(i+sl.length)%sl.length;
+ var x=sl[cur].offsetLeft-sl[0].offsetLeft;
+ trk.style.transform='translate3d('+(-x)+'px,0,0)';
+ sl.forEach(function(e,k){e.classList.toggle('on',k===cur)});
+ [].forEach.call(dots.children,function(d,k){d.classList.toggle('on',k===cur)});
+ clearInterval(tm);tm=setInterval(function(){go(cur+1)},6500);
+};
+var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){trk.style.transition='none';go(cur);void trk.offsetWidth;trk.style.transition=''},80)});
+addEventListener('orientationchange',function(){setTimeout(function(){go(cur)},250)});
+go(cur);
 })();
 </script>
 </body>
